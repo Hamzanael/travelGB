@@ -3,41 +3,39 @@
 <%- include('partials/header'); %>
 
 <body>
-	<!--- loading animation -->
-	<%- include('utils/loader'); %>
-	<!--- //loading animation -->
+<!--- loading animation -->
+<%- include('utils/loader'); %>
+<!--- //loading animation -->
 
-	<!--header-->
-	<%- include('partials/navbar'); %>
-	<!--//header-->
+<!--header-->
+<%- include('partials/navbar'); %>
+<!--//header-->
 
-	<!--slider-->
-	<%- include('utils/slider'); %>
-	<!--//slider-->
+<!--slider-->
+<%- include('utils/slider'); %>
+<!--//slider-->
 
 
+<!--search-->
+<%- include('utils/search'); %>
+<!--main-->
+<main class="main">
+    <div class="wrap">
+        <div class="row">
+            <div class="full-width">
 
-	<!--search-->
-	<%- include('utils/search'); %>
-	<!--main-->
-	<main class="main">
-		<div class="wrap">
-			<div class="row">
-				<div class="full-width">
+                <!--top destinations-->
+                <%- include('utils/destinations'); %>
 
-					<!--top destinations-->
-					<%- include('utils/destinations'); %>
-
-				<!--//top destinations-->
-				</div>
-			</div>
-		</div>
-	</main>
-	<!--//main-->
-	<%- include('partials/footer'); %>
+                <!--//top destinations-->
+            </div>
+        </div>
+    </div>
+</main>
+<!--//main-->
+<%- include('partials/footer'); %>
 
 </body>
-
 
 
 </html>
