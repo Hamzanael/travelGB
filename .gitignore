@@ -118,3 +118,7 @@ dist
 .pnp.*
 # inteliJ
 .idea
+
+!public/assets/search/vendor/jquery-smartwizard/dist
+!public/assets/search/vendor/bootstrap-select/dist
+venv
