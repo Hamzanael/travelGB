@@ -1,19 +1,28 @@
-const passportLocalMongoose = require('passport-local-mongoose')
-const findOrCreate = require('mongoose-findorcreate')
-
-const UserSchema = new mongoose.Schema({
-    email: String,
-    password: String,
-    name: String,
-    Role: String,
-    googleId: String,
-    facebookId: String,
-    orders: [],
+const ActivitySchema = new mongoose.Schema({
+    title: String,
+    Price: Number,
+    Rating: Number,
+})
+const RestaurantSchema = new mongoose.Schema({
+    title: String,
+    Price: Number,
+    Rating: Number,
+    location: String,
+    category: [],
+})
+const HotelSchema = new mongoose.Schema({
+    title: String,
+    location: String,
+    Price: Number,
+    Rating: Number,
 })
 
-UserSchema.plugin(passportLocalMongoose)
-UserSchema.plugin(findOrCreate)
+const PlanSchema = new mongoose.Schema({
+    hotelId: String,
+    restaurantId: String,
+    activityId: String,
+})
 
 module.exports = {
-    UserSchema,
+    ActivitySchema, HotelSchema, RestaurantSchema, PlanSchema,
 }

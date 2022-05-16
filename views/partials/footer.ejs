@@ -68,12 +68,9 @@
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 
 <script type="text/javascript">
-    (function ($) {
-        $(document).ready(function () {
-            $('.form').hide();
-            $('#form1').show();
-            $('.f-item:nth-child(1)').addClass('active');
-            $('.f-item:nth-child(1) span').addClass('checked');
+    (function($) {
+        $(document).ready(function() {
+
 
             $('#hero-gallery').lightSlider({
                 gallery: true,
@@ -86,20 +83,18 @@
                 mode: 'fade',
                 auto: true,
                 loop: true,
-                onSliderLoad: function () {
-                    $('#hero-gallery').removeClass('cS-hidden');
-                }
-            });
-        });
-    })(jQuery);
+                onSliderLoad: function() {
+                    $('#hero-gallery').removeClass('cS-hidden')
+                },
+            })
+        })
+    })(jQuery)
 </script>
 <script>
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-    });
-    $(document).ready(function () {
-        $('.js-example-basic-multiple2').select2();
-    });
+    $(document).ready(function() {
+        $('#restaurant-categories').select2()
+    })
 </script>
 
 <script src="/assets/js/styler.js"></script>
+<script src="/assets/js/location.js"></script>

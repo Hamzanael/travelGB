@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header'); %>
+
+<body>
+<!--- loading animation -->
+<%- include('../utils/loader'); %>
+<!--- //loading animation -->
+
+<!--header-->
+<%- include('../partials/navbar'); %>
 <main class="main">
     <div class="wrap">
         <!--breadcrumbs-->
@@ -12,85 +23,87 @@
                     <nav class="breadcrumbs">
                         <!--crumbs-->
                         <ul>
-                            <li><a title="Hotels">Hotels</a></li>
+                            <li><a title="Hotels">Our Recommendation</a></li>
                         </ul>
                         <!--//crumbs-->
                     </nav>
 
-                    <!--deal-->
+                    <!--hotel-->
                     <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg" alt=""/></a>
+                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg"
+                                                                       alt="" /></a>
                         </figure>
                         <div class="details">
-                            <h3>Best ipsum hotel
+                            <h3><%= bestHotel.title %> Hotel
                                 <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
+                                    <% for( let index = 0; index < bestHotel.Rating ; index++ ) { %>
+                                        <i class="material-icons">&#xE838;</i>
+                                    <% } %>
+                                </span>
                             </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
+                            <span class="address"><%= bestHotel.location %> </span>
 
-                            <span class="price">Price per night from  <em>$ 50</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
+                            <span class="price">Price per night from <em>$ <%= bestHotel.Price %> </em> </span>
+                            <% if (noHotels) { %>
+                                <div class="description">
+                                    <p>
+                                        this might be over your price but it is the best option available
+
+                                </div>
+                            <% } %></p>
                             <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
                         </div>
                     </article>
                     <!--//deal-->
 
-                    <!--deal-->
+                    <!--restaurant-->
                     <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel2.jpg" alt=""/></a>
+                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg"
+                                                                       alt="" /></a>
                         </figure>
                         <div class="details">
-                            <h3>Tropicana hotel
+                            <h3><%= bestRestaurant.title %> Restaurant
                                 <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
+                                    <% for( let index = 0; index < bestRestaurant.Rating ; index++ ) { %>
+                                        <i class="material-icons">&#xE838;</i>
+                                    <% } %>
+                                </span>
                             </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 80</em> </span>
+                            <span class="address"><%= bestRestaurant.location %> </span>
+                            <span class="address"><%= bestRestaurant.category %> </span>
+                            <span class="price">Average price <em>$ <%= bestRestaurant.Price %> </em> </span>
+                            <p>
+                                <% if (noRestaurants) { %>
                             <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
+                                this might be over your price but it is the best option available
                             </div>
+                            <% } %></p>
                             <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
                         </div>
                     </article>
                     <!--//deal-->
 
-                    <!--deal-->
+                    <!--activity-->
                     <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel3.jpg" alt=""/></a>
+                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg"
+                                                                       alt="" /></a>
                         </figure>
                         <div class="details">
-                            <h3>Spa Resort hotel
+                            <h3><%= bestActivities.title %>
                                 <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
+                                    <% for( let index = 0; index < bestActivities.Rating ; index++ ) { %>
+                                        <i class="material-icons">&#xE838;</i>
+                                    <% } %>
+                                </span>
                             </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 70</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
+                            <span class="price">Price <em>$ <%= bestActivities.Price %> </em> </span>
+                            <% if (noActivities) { %>
+                                <div class="description">
+                                    <p>
+                                        this might be over your price but it is the best option available
+                                    </p>
+                                </div>
+                            <% } %>
                             <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
                         </div>
                     </article>
@@ -99,113 +112,35 @@
                     <nav class="breadcrumbs">
                         <!--crumbs-->
                         <ul>
-                            <li><a title="Landmarks">Landmarks</a></li>
+                            <li><a title="Landmarks">Other Hotels</a></li>
                         </ul>
                         <!--//crumbs-->
                     </nav>
                     <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel4.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Spa Resort hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
 
-                            <span class="price">Price per night from  <em>$ 70</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
+                    <% hotels.forEach(element => { %>
+                        <% if (element != true) { %>
+                            <article class="one-third">
+                                <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg"
+                                                                               alt="" /></a>
+                                </figure>
+                                <div class="details">
+                                    <h3><%= element.title %> Hotel
 
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel5.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Best ipsum hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
+                                        <span class="stars">
+                                            <% for( let index = 0; index < element.Rating ; index++ ) { %>
+                                                <i class="material-icons">&#xE838;</i>
+                                            <% } %>
+                                        </span>
+                                        <span class="address"><%= bestRestaurant.location %> </span>
+                                    </h3>
+                                    <span class="price">Price <em>$ <%= element.Price %> </em> </span>
+                                    <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
+                                </div>
+                            </article>
+                        <% } %>
+                    <% }) %>
 
-                            <span class="price">Price per night from  <em>$ 50</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
-
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel6.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Tropicana hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 80</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
-
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Best ipsum hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 50</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
                     <!--//deal-->
                     <nav class="breadcrumbs">
                         <!--crumbs-->
@@ -214,136 +149,57 @@
                         </ul>
                         <!--//crumbs-->
                     </nav>
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel2.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Tropicana hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
+                    <% restaurants.forEach(element => { %>
+                        <% if (element != true) { %>
+                            <article class="one-third">
+                                <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg"
+                                                                               alt="" /></a>
+                                </figure>
+                                <div class="details">
+                                    <h3><%= element.title %> Restaurant
 
-                            <span class="price">Price per night from  <em>$ 80</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
+                                        <span class="stars">
+                                            <% for( let index = 0; index < element.Rating ; index++ ) { %>
+                                                <i class="material-icons">&#xE838;</i>
+                                            <% } %>
+                                        </span>
+                                        <span class="address"><%= bestRestaurant.location %> </span>
+                                        <span class="address"><%= bestRestaurant.category %> </span>
+                                    </h3>
+                                    <span class="price">Price <em>$ <%= element.Price %> </em> </span>
+                                    <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
+                                </div>
+                            </article>
+                        <% } %>
+                    <% }) %>
 
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel3.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Spa Resort hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 70</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
-
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel4.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Spa Resort hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 50</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
-
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel5.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Best ipsum hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 50</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
-
-                    <!--deal-->
-                    <article class="one-third">
-                        <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel6.jpg" alt=""/></a>
-                        </figure>
-                        <div class="details">
-                            <h3>Tropicana hotel
-                                <span class="stars">
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-										<i class="material-icons">&#xE838;</i>
-									</span>
-                            </h3>
-                            <span class="address">London  •  <a href="#">Show on map</a></span>
-
-                            <span class="price">Price per night from  <em>$ 80</em> </span>
-                            <div class="description">
-                                <p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’
-                                    walk from London’s Zoological Gardens and a metro station. <a href="tel:9627xxxxxx">More
-                                        info</a></p>
-                            </div>
-                            <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
-                        </div>
-                    </article>
-                    <!--//deal-->
+                    <nav class="breadcrumbs">
+                        <!--crumbs-->
+                        <ul>
+                            <li><a title="Activities">Activities</a></li>
+                        </ul>
+                        <!--//crumbs-->
+                    </nav>
+                    <% activities.forEach(element => { %>
+                        <% if (element != true) { %>
+                            <article class="one-third">
+                                <figure><a href="tel:9627xxxxxx" title=""><img src="/assets/images/uploads/hotel1.jpg"
+                                                                               alt="" /></a>
+                                </figure>
+                                <div class="details">
+                                    <h3><%= element.title %>
+                                        <span class="stars">
+                                            <% for( let index = 0; index < element.Rating ; index++ ) { %>
+                                                <i class="material-icons">&#xE838;</i>
+                                            <% } %>
+                                        </span>
+                                    </h3>
+                                    <span class="price">Price <em>$ <%= element.Price %> </em> </span>
+                                    <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
+                                </div>
+                            </article>
+                        <% } %>
+                    <% }) %>
 
                     <!--bottom navigation-->
                     <div class="bottom-nav">
@@ -358,4 +214,8 @@
         </div>
         <!--//main content-->
     </div>
+    <%- include('../partials/footer'); %>
 </main>
+</body>
+
+</html>

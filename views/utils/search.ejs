@@ -1,6 +1,6 @@
 <div class="wrap">
     <div class="content-body">
-        <form class="container-fluid" id="wizardFormPleaseWork">
+        <form class="container-fluid" id="wizardFormPleaseWork" method='post' action='/api/search'>
             <!-- row -->
             <div class="row">
                 <div class="col-xl-12 col-xxl-12">
@@ -11,97 +11,26 @@
                         <div class="card-body">
                             <div id="smartwizard" class="form-wizard order-create">
                                 <ul class="nav nav-wizard">
-                                    <li><a class="nav-link" href="#wizard_Service">
-                                            <span>Hotels</span>
+                                    <li><a class="nav-link" href="#wizard_general">
+                                            <span>General</span>
                                         </a></li>
-                                    <li><a class="nav-link" href="#wizard_Time">
+                                    <li><a class="nav-link" href="#wizard_restaurants">
                                             <span>restaurants and cafes</span>
                                         </a></li>
-                                    <li><a class="nav-link" href="#wizard_Details">
-                                            <span>Landmarks</span>
+                                    <li><a class="nav-link" href="#wizard_hotels">
+                                            <span>Ratings</span>
                                         </a></li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div id="wizard_Service" class="tab-pane" role="tabpanel">
-                                        <div class="row">
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Location</label>
-                                                    <select name='' id=''>
-                                                        <option value='sad'>dsad</option>
-                                                        <option value='sad'>dsad</option>
-                                                        <option value='sad'>dsad</option>
-                                                        <option value='sad'>dsad</option>
-                                                    </select>
-                                                    <!--                                                    <input type="text" name="firstName" class="form-control"-->
-                                                    <!--                                                           placeholder="Parsley" required>-->
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Rating</label>
-                                                    <select name='' id=''>
-                                                        <option value='1'>1 stars</option>
-                                                        <option value='2'>2stars</option>
-                                                        <option value='3'>3 stars</option>
-                                                        <option value='4'>4 stars</option>
-                                                        <option value='5'>5 stars</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Price</label>
-                                                    <input type="number" class="form-control" id="inputGroupPrepend2"
-                                                           aria-describedby="inputGroupPrepend2"
-                                                           placeholder="35" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="wizard_Time" class="tab-pane" role="tabpanel">
-                                        <div class="row">
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Food Type</label>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Price</label>
-                                                    <input type="number" class="form-control" id="emial1"
-                                                           placeholder="20" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Company Phone Number*</label>
-                                                    <input type="text" name="phoneNumber" class="form-control"
-                                                           placeholder="(+1)408-657-9007" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-2">
-                                                <div class="form-group">
-                                                    <label class="text-label">Your position in Company*</label>
-                                                    <input type="text" name="place" class="form-control" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="wizard_Details" class="tab-pane" role="tabpanel">
-                                        <div class="row">
-                                            <select class="js-example-basic-multiple"
-                                                    name="states[]"
-                                                    multiple="multiple">
-                                                <option value="AL">Amman Petra Full-Day Trip</option>
-                                                <option value="WY">Private Full Day Trip to Wadi Rum Valley of Moon
-                                                    Martian Desert from Amman
-                                                </option>
-                                            </select>
-                                        </div>
+                                    <!-- General tap -->
+                                    <%- include('../search/General'); %>
+                                    <!-- Hotels tap-->
+                                    <%- include('../search/Hotels'); %>
 
-                                    </div>
+                                    <!-- Restaurants tap -->
+                                    <%- include('../search/Restaurants'); %>
+
                                 </div>
                             </div>
                         </div>

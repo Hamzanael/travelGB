@@ -1,10 +1,7 @@
-const storage = require('../../services/storage/storage')
-
+const SearchController = require('../controller/searchController')
+const searchController = new SearchController()
 const formsRoute = (apiRoute) => {
-    apiRoute.use('/forms', storage.array('images', 10))
-    apiRoute.route('/forms').post((req, res, next) => {
-        console.log(req.files)
-    })
+    apiRoute.post('/search', searchController.getSearchResults)
 }
 
 module.exports = formsRoute
