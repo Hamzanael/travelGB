@@ -15,6 +15,7 @@ module.exports = class SearchController {
       * hotels = 150 * 50%  =  75
       * restaurants = (150 - hotels)*50% = 37
       * activities  150 - (hotels + restaurants)   = 38
+      *
       * */
 
     async getSearchResults(req, res) {
@@ -46,22 +47,28 @@ module.exports = class SearchController {
         let activities = await activityService.getActivities({
             title: generalPlace, Price: activitiesPrice,
         })
-        if (activities[activities.length - 1] === true) {
+        let bestHotel = getBestObject(hotels)
+        let bestRestaurant = getBestObject(restaurant)
+        let bestActivities = getBestObject(activities)
+        let noPriceEnough = (bestHotel.Price + bestRestaurant.Price + bestActivities.Price) > oneDayPrice
+        if (activities[activities.length - 1] === true && noPriceEnough) {
             noActivities = true
         }
-        if (hotels[hotels.length - 1] === true) {
+        if (hotels[hotels.length - 1] === true && noPriceEnough) {
             noHotels = true
         }
-        if (restaurant[restaurant.length - 1] === true) {
+        if (restaurant[restaurant.length - 1] === true && noPriceEnough) {
             noRestaurants = true
         }
+
+
         res.render('utils/results', {
             hotels: [...hotels],
             restaurants: [...restaurant],
             activities: [...activities],
-            bestHotel: getBestObject(hotels),
-            bestRestaurant: getBestObject(restaurant),
-            bestActivities: getBestObject(activities),
+            bestHotel,
+            bestRestaurant,
+            bestActivities,
             noRestaurants, noActivities, noHotels,
         })
 
@@ -69,17 +76,30 @@ module.exports = class SearchController {
         function getBestObject(results) {
             let bestObject = results[0]
             for (let i = 1; i < results.length; i++) {
-                if (bestObject.Price > results[i].Price) {
-                    for (let j = i; j < results.length; j++) {
-                        if (bestObject.Rating < results[j].Rating) {
-                            bestObject = results[j]
-                        }
+                if (Math.ceil(bestObject.Rating) < Math.ceil(results[i].Rating)) {
+                    bestObject = results[i]
+                } else if (Math.ceil(bestObject.Rating) === Math.ceil(results[i].Rating)) {
+                    if (bestObject.Price >= results[i].Price) {
+                        bestObject = results[i]
                     }
                 }
+
             }
             return bestObject
         }
 
+
+        /**
+         * if (bestObject.Price >= results[i].Price) {
+         *                     for (let j = i; j < results.length; j++) {
+         *                         if (Math.ceil(bestObject.Rating) <= Math.ceil(results[j].Rating)) {
+         *                             bestObject = results[j]
+         *                             break
+         *                         }
+         *                     }
+         *                 }
+         *
+         * */
     }
 
 

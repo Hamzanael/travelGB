@@ -47,7 +47,9 @@
                             <% if (noHotels) { %>
                                 <div class="description">
                                     <p>
-                                        this might be over your price but it is the best option available
+                                        this might be over your price, but it is the best option available. You may want
+                                        to consider
+                                        adjusting your budget to fit our best options
 
                                 </div>
                             <% } %></p>
@@ -75,7 +77,9 @@
                             <p>
                                 <% if (noRestaurants) { %>
                             <div class="description">
-                                this might be over your price but it is the best option available
+                                this might be over your price, but it is the best option available. You may want
+                                to consider
+                                adjusting your budget to fit our best options
                             </div>
                             <% } %></p>
                             <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
@@ -100,8 +104,9 @@
                             <% if (noActivities) { %>
                                 <div class="description">
                                     <p>
-                                        this might be over your price but it is the best option available
-                                    </p>
+                                        this might be over your price, but it is the best option available. You may want
+                                        to consider
+                                        adjusting your budget to fit our best options </p>
                                 </div>
                             <% } %>
                             <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
@@ -132,7 +137,7 @@
                                                 <i class="material-icons">&#xE838;</i>
                                             <% } %>
                                         </span>
-                                        <span class="address"><%= bestRestaurant.location %> </span>
+                                        <span class="address"><%= element.location %> </span>
                                     </h3>
                                     <span class="price">Price <em>$ <%= element.Price %> </em> </span>
                                     <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>
@@ -163,8 +168,8 @@
                                                 <i class="material-icons">&#xE838;</i>
                                             <% } %>
                                         </span>
-                                        <span class="address"><%= bestRestaurant.location %> </span>
-                                        <span class="address"><%= bestRestaurant.category %> </span>
+                                        <span class="address"><%= element.location %> </span>
+                                        <span class="address"><%= element.category %> </span>
                                     </h3>
                                     <span class="price">Price <em>$ <%= element.Price %> </em> </span>
                                     <a href="tel:9627xxxxxx" title="Call now" class="gradient-button">Call now</a>

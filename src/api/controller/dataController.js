@@ -9,6 +9,7 @@ const hotelService = new HotelService()
 const restaurantService = new RestaurantService()
 const activityService = new ActivityService()
 module.exports = class DataController {
+
     static async reader(fileName) {
         return new Promise(resolve => {
             let results = []

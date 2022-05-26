@@ -15,7 +15,7 @@ module.exports = class RestaurantService {
             let result = await Restaurant.find({
                 location: { '$regex': `${searchParams.location}`, '$options': 'i' }
                 , $and: [{
-                    Price: { $lte: searchParams.Price + searchParams.Price * 0.3 },
+                    Price: { $lte: searchParams.Price + searchParams.Price * 0.1 },
                 }, { Price: { $gte: searchParams.Price - searchParams.Price * 0.1 } },
                 ],
                 category: { $all: searchParamsKey },
